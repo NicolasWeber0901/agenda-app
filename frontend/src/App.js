@@ -8,6 +8,7 @@ function App() {
   const [itens, setItens] = useState([])
   const [filterItens, setFilterItens] = useState({ filter: false, active: true })
 
+  //Retorna os dados
   function getDados() {
     fetch('http://localhost:3000/todo/list', { method: "GET" })
       .then(response => response.json())
