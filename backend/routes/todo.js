@@ -4,6 +4,7 @@ var router = express.Router();
 const db = require("../servicos/db")
 const { ObjectId } = require("mongodb")
 
+//Funciona pensando no contexto da conexão já existente no banco de dados
 db.connectToDB((err) => {
 
     if(err) console.log(err)

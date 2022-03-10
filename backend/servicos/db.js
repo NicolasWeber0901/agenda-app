@@ -1,6 +1,4 @@
-const { MongoClient, ClientSession } = require('mongodb');
-// or as an es module:
-// import { MongoClient } from 'mongodb'
+const { MongoClient } = require('mongodb');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
@@ -11,6 +9,7 @@ const dbName = 'to-do-list-db';
 
 var _db;
 
+//Necessário callback pois o código continuará sendo executado depois da função connectToDB
 function connectToDB(callback) {
 
     client.connect(function (err) {
@@ -18,6 +17,7 @@ function connectToDB(callback) {
 
         _db = client.db(dbName);
 
+        //Caso tenha algum erro, ele envia esse erro. Do contrário, continua normalmente.
         callback(err)
     });
 }
